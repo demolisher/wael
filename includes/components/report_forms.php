@@ -123,14 +123,14 @@ require 'config.php';
                                     echo $max;
                                     ?>
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <?php
                                     $sql = "select sum(total_no) from subject_need where n_code = '$need_id'";
                                     $q = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_array($q);
                                     echo $row[0];
                                     ?>
-                                </td>
+                                </td> -->
                                 <td>
                                     <?php
                                     echo $sum;
