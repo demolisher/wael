@@ -365,7 +365,7 @@
 <script>
   $("#genSub").on("click", function() {
     var need_c = document.getElementById("needCode").value;
-    window.location.href = "http://localhost/sort/need_subjects.php?c=" + need_c;
+    window.location.href = "http://localhost/wael/need_subjects.php?c=" + need_c;
 
   });
 </Script>
