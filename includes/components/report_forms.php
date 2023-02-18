@@ -57,10 +57,10 @@ require 'config.php';
                     <table id="myTable" class="w-100 table table-bordered table-striped">
                         <thead>
                             <tr class="text-center">
-                                <th style="width:15%">المادة</th>
+                                <th style="width:25%">المادة</th>
                                 <th style="width:10%">عدد الحصص</th>
                                 <th style="width:10%">عدد الصفوف</th>
-                                <th style="width:10%">المجموع</th>
+                                <!-- <th style="width:10%">المجموع</th> -->
                                 <th style="width:10%">اللازم</th>
                                 <th style="width:10%">المتوفر</th>
                                 <th style="width:10%">الزيادة</th>
@@ -94,7 +94,7 @@ require 'config.php';
                                             $row2[0]>$max? $max = $row2[0] : $max = $max;
                                             ?>
                                             </td>
-                                        <td><?php echo $row1[0] * $row2[0]; ?></td>
+                                        <!-- <td><?php echo $row1[0] * $row2[0]; ?></td> -->
                                         <td><?php $tot = bcdiv(($row1[0] * $row2[0]),$sl_need['comple'],2); 
                                         echo $tot;
                                         $sum = $sum + $tot;
