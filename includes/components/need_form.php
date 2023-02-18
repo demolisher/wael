@@ -134,7 +134,7 @@
         <script>
             /* function goSub() {
                 var need_c = document.getElementById("needCode").value;
-                Location.href ="http://localhost/wael/need_subjects.php?c=" + need_c;
+                Location.href ="http://localhost/sort/need_subjects.php?c=" + need_c;
             } */
             
         </script>
