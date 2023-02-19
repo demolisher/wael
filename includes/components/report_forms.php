@@ -14,7 +14,7 @@ require 'config.php';
                         <button class="btn btn-success btn-sm m-2" style="float: left !important;font-size:0.8rem; padding:5px 10px" onclick="ExportToExcel('xlsx')">تصدير إلى إكسيل <i class="fas fa-table float-right p-1 text-white"></i></button>
                         <button class="btn btn-danger btn-sm m-2" style="float: left !important;font-size:0.8rem; padding:5px 10px" onclick="exportPDF()">تصدير إلى PDF <i class="fas fa-file float-right p-1 text-white"></i></button>
                         </div>
-                              <!-- <a class="btn btn-primary btn-sm m-2" href="need_report.php?n=<?php echo $need_id; ?>" style="float: left !important;font-size:0.8rem; padding:5px 10px">تقرير احتياجات المرحلة والمقارنة</a> -->
+                              <a class="btn btn-warning btn-sm m-2" href="need_calc.php?n=<?php echo $need_id; ?>" style="float: left !important;font-size:0.8rem; padding:5px 10px">الرجوع لمعلومات الاحتياج</a>
                     </div>
                     <div class="d-flex">
                         <table  class="w-75 table table-bordered table-striped m-1">

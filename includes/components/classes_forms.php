@@ -11,6 +11,8 @@ require 'config.php';
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title" style="float: right !important">معلومات الاحتياج</h3>
+                    <a class="btn btn-warning btn-sm m-2" href="needs.php" style="float: left !important;font-size:0.8rem; padding:5px 10px">الرجوع إلى قائمة الاحتياجات</a>
+
                     <table class="table table-bordered table-striped">
                         <tr>
                             <td>المجمع التعليمي</td>

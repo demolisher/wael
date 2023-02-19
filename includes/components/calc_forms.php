@@ -11,6 +11,8 @@ require 'config.php';
                     <div class="d-flex align-items-center justify-content-between">
                     <h3 class="card-title" style="float: right !important">معلومات الاحتياج</h3>
                     <a class="btn btn-primary btn-sm m-2" href="need_report.php?n=<?php echo $need_id;?>" style="float: left !important;font-size:0.8rem; padding:5px 10px">تقرير احتياجات المرحلة والمقارنة</a>
+                    <a class="btn btn-warning btn-sm m-2" href="classes.php?n=<?php echo $need_id; ?>" style="float: left !important;font-size:0.8rem; padding:5px 10px">الرجوع إلى قائمة الصفوف</a>
+
                     </div>
                     
                     <table class="table table-bordered table-striped">
