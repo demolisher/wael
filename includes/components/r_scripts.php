@@ -51,22 +51,28 @@
 
   function ExportToExcel(type, fn, dl) {
     var elt = document.getElementById('need_info');
-       var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-       return dl ?
-         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
-         XLSX.writeFile(wb, fn || ('NeedReport.' + (type || 'xlsx')));
-    }
+    var wb = XLSX.utils.table_to_book(elt, {
+      sheet: "sheet1"
+    });
+    return dl ?
+      XLSX.write(wb, {
+        bookType: type,
+        bookSST: true,
+        type: 'base64'
+      }) :
+      XLSX.writeFile(wb, fn || ('NeedReport.' + (type || 'xlsx')));
+  }
 
-    function exportPDF() {
-  // Get the HTML table element
-  var table = document.getElementById("need_info");
+  function exportPDF() {
+    // Get the HTML table element
+    var table = document.getElementById("need_info");
 
-  // Create a new html2pdf instance
-  var pdf = new html2pdf();
+    // Create a new html2pdf instance
+    var pdf = new html2pdf();
 
-  // Convert the HTML table to a PDF file
-  pdf.from(table).save();
-}
+    // Convert the HTML table to a PDF file
+    pdf.from(table).save();
+  }
 </script>
 
 <script>
@@ -390,41 +396,168 @@
   });
 </Script>
 <script>
+  $(document).ready(function() {
 
-$(document).ready(function() {
-  $('#myTable tr').not(':last').each(function() {
-    var $row = $(this);
-    var $subtrahend = $row.find('td:nth-child(5) input');
+    $('#myTable tbody tr').not(':last').each(function() {
+      var $row = $(this);
+      var $subtrahend = $row.find('td:nth-child(5) input');
+
+      $row.find('td:nth-child(6)').css('background-color', 'yellow');
+      $row.find('td:nth-child(7)').css('background-color', 'yellow');
+
+      
+
+      $subtrahend.on('keyup keydown input focus change', function() {
+        var minuend = parseFloat($row.find('td:nth-child(4)').text());
+        var subtrahend = parseFloat($(this).val());
+        var difference = subtrahend - minuend;
+        
+        var $inputCells1 = $('#myTable tbody tr:not(:last) td:nth-child(5) input');
+        var total1 = 0;
+        // calculate the total of all input values
+        $inputCells1.each(function() {
+          total1 += parseFloat($(this).val()) || 0;
+        });
+
+        // add the total to the last cell in the column
+        var $lastCell1 = $('#myTable tbody tr:last td:nth-child(5)');
+        $lastCell1.text(total1.toFixed(2));
+
+        var $inputCells2 = $('#myTable tbody tr:not(:last) td:nth-child(6)');
+        var total2 = 0;
+
+        // calculate the total of all input values
+        $inputCells2.each(function() {
+          total2 += parseFloat($(this).text()) || 0;
+        });
+
+        // add the total to the last cell in the column
+        var $lastCell2 = $('#myTable tbody tr:last td:nth-child(6)');
+        $lastCell2.text(total2.toFixed(2));
+
+        var $inputCells3 = $('#myTable tbody tr:not(:last) td:nth-child(7)');
+        var total3 = 0;
+
+        // calculate the total of all input values
+        $inputCells3.each(function() {
+          total3 += parseFloat($(this).text()) || 0;
+        });
+
+        // add the total to the last cell in the column
+        var $lastCell3 = $('#myTable tbody tr:last td:nth-child(7)');
+        $lastCell3.text(total3.toFixed(2));
+
+        
 
 
-    $subtrahend.on('change', function() {
-      var minuend = parseFloat($row.find('td:nth-child(4)').text());
-      var subtrahend = parseFloat($(this).val());
-      var difference = subtrahend - minuend;
+        if (difference > 0) {
+          $row.find('td:nth-child(7)').text('0.00');
+          var $result = $row.find('td:nth-child(6)');
+          var $colorCell = $result;
+          $colorCell = $row.find('td:nth-child(6)');
+          $colorCell.css('background-color', 'green');
+          $colorCell7 = $row.find('td:nth-child(7)');
+          $colorCell7.css('background-color', 'lightGray');
+          $result.text(difference.toFixed(2));
 
-      if (difference >= 0) {
-        $row.find('td:nth-child(7)').text('0.00');
-        var $result = $row.find('td:nth-child(6)');
-        var $colorCell = $result;
-        $colorCell = $row.find('td:nth-child(6)');
-        $colorCell.css('background-color', 'green');
-        $colorCell7 = $row.find('td:nth-child(7)');
-        $colorCell7.css('background-color', 'lightGray');
-        $result.text(difference.toFixed(2));
-      } else {
-        $row.find('td:nth-child(6)').text('0.00');
-        var $result = $row.find('td:nth-child(7)');
-        var $colorCell = $result;
-        $colorCell = $row.find('td:nth-child(7)');
-        $colorCell.css('background-color', 'red');
-        $colorCell6 = $row.find('td:nth-child(6)');
-        $colorCell6.css('background-color', 'lightGray');
-        $result.text(difference.toFixed(2));
-      }
+
+        } else if (difference == 0) {
+          $row.find('td:nth-child(7)').text('0.00');
+          var $result = $row.find('td:nth-child(6)');
+          var $colorCell = $result;
+          $colorCell = $row.find('td:nth-child(6)');
+          $colorCell.css('background-color', 'yellow');
+          $colorCell7 = $row.find('td:nth-child(7)');
+          $colorCell7.css('background-color', 'yellow');
+          $result.text(difference.toFixed(2));
+
+
+
+        } else {
+          $row.find('td:nth-child(6)').text('0.00');
+          var $result = $row.find('td:nth-child(7)');
+          var $colorCell = $result;
+          $colorCell = $row.find('td:nth-child(7)');
+          $colorCell.css('background-color', 'red');
+          $colorCell6 = $row.find('td:nth-child(6)');
+          $colorCell6.css('background-color', 'lightGray');
+          $result.text(difference.toFixed(2));
+
+
+        }
+
+      });
     });
   });
-});
+</script>
+<script>
+  function accom1() {
+    $(document).ready(function() {
 
+
+      // Loop over the input cells in the second column (index 1)
+      $('#myTable tbody tr td:nth-child(5) input').each(function() {
+        // Check if the input cell is not the last cell in the column
+        if ($(this).closest('td').index() !== $(this).closest('tr').find('td:last').index()) {
+          // If not, add the input value to the sum1
+          sum1 += parseFloat($(this).val());
+
+        }
+
+      });
+
+      // Output the sum1 to the console
+      if (isNaN(sum1)) {
+        $('#accom1').text('0.00');
+      } else {
+        $('#accom1').text(sum1.toFixed(2));
+      }
+    });
+  }
+
+  function accom2() {
+    $(document).ready(function() {
+
+
+      // Loop over the input cells in the second column (index 1)
+      $('#myTable tbody tr td:nth-child(6)').each(function() {
+        // Check if the input cell is not the last cell in the column
+        if ($(this).closest('td').index() !== $(this).closest('tr').find('td:last').index()) {
+          // If not, add the input value to the sum2
+
+          sum2 += parseFloat($(this).text());
+        }
+      });
+
+      // Output the sum2 to the console
+      if (isNaN(sum2)) {
+        $('#accom2').text('0.00');
+      } else {
+        $('#accom2').text(sum2.toFixed(2));
+      }
+    });
+  }
+
+  function accom3() {
+    $(document).ready(function() {
+
+      // Loop over the input cells in the second column (index 1)
+      $('#myTable tbody tr td:nth-child(7)').each(function() {
+        // Check if the input cell is not the last cell in the column
+        if ($(this).closest('td').index() !== $(this).closest('tr').find('td:last').index()) {
+          // If not, add the input value to the sum3
+          sum3 += parseFloat($(this).text());
+        }
+      });
+
+      // Output the sum3 to the console
+      if (isNaN(sum3)) {
+        $('#accom3').text('0.00');
+      } else {
+        $('#accom3').text(sum3.toFixed(2));
+      }
+    });
+  }
 </script>
 <script>
   $(document).ready(function() {

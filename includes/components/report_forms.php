@@ -95,13 +95,13 @@ require 'config.php';
                                             ?>
                                             </td>
                                         <!-- <td><?php echo $row1[0] * $row2[0]; ?></td> -->
-                                        <td><?php $tot = bcdiv(($row1[0] * $row2[0]),$sl_need['comple'],2); 
+                                        <td><?php $tot = bcdiv(($row1[0]),$sl_need['comple'],2); 
                                         echo $tot;
                                         $sum = $sum + $tot;
                                         ?></td>
-                                        <td><input class="available" type="number" min="0.00" name="" id="" step="0.01"></td>
-                                        <td>...</td>
-                                        <td>...</td>
+                                        <td><input class="available" type="number" min="0.00" name="" id="" step="0.01" value="0.00"></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                             <?php
                                 }
@@ -136,7 +136,7 @@ require 'config.php';
                                     echo $sum;
                                     ?>
                                 </td>
-                                <td>
+                                <td id="accom1">
                                     <?php
                                     $sql = "select sum(need_no) from subject_need where n_code = '$need_id'";
                                     $q = mysqli_query($conn, $sql);
@@ -144,7 +144,7 @@ require 'config.php';
                                     echo '...';
                                     ?>
                                 </td>
-                                <td>
+                                <td id="accom2">
                                     <?php
                                     $sql = "select sum(need_no) from subject_need where n_code = '$need_id'";
                                     $q = mysqli_query($conn, $sql);
@@ -152,7 +152,7 @@ require 'config.php';
                                     echo '...';
                                     ?>
                                 </td>
-                                <td>
+                                <td id="accom3">
                                     <?php
                                     $sql = "select sum(need_no) from subject_need where n_code = '$need_id'";
                                     $q = mysqli_query($conn, $sql);
