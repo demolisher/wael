@@ -64,7 +64,7 @@ require 'config.php';
                                         <td><?= $task['class'] ?></td>
 
                                         <td class="text-center" style="display: flex;justify-content:center;vertical-align:middle">
-                                            <?php if ($fetch['rule'] != 'data_entry') { ?><a href="subjects.php?n=<?= $need_id;?>&c=<?= $task['id'];?>" class="viewStudentBtn btn-primary btn-sm m-1">احتياجات المواد</a><?php } ?>
+                                          <a href="subjects.php?n=<?= $need_id;?>&c=<?= $task['id'];?>" class="btn-primary btn-sm m-1">احتياجات المواد</a>
                                         </td>
                                     </tr>
                             <?php
