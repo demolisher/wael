@@ -389,7 +389,43 @@
 
   });
 </Script>
+<script>
 
+$(document).ready(function() {
+  $('#myTable tr').not(':last').each(function() {
+    var $row = $(this);
+    var $subtrahend = $row.find('td:nth-child(5) input');
+
+
+    $subtrahend.on('change', function() {
+      var minuend = parseFloat($row.find('td:nth-child(4)').text());
+      var subtrahend = parseFloat($(this).val());
+      var difference = subtrahend - minuend;
+
+      if (difference >= 0) {
+        $row.find('td:nth-child(7)').text('0.00');
+        var $result = $row.find('td:nth-child(6)');
+        var $colorCell = $result;
+        $colorCell = $row.find('td:nth-child(6)');
+        $colorCell.css('background-color', 'green');
+        $colorCell7 = $row.find('td:nth-child(7)');
+        $colorCell7.css('background-color', 'lightGray');
+        $result.text(difference.toFixed(2));
+      } else {
+        $row.find('td:nth-child(6)').text('0.00');
+        var $result = $row.find('td:nth-child(7)');
+        var $colorCell = $result;
+        $colorCell = $row.find('td:nth-child(7)');
+        $colorCell.css('background-color', 'red');
+        $colorCell6 = $row.find('td:nth-child(6)');
+        $colorCell6.css('background-color', 'lightGray');
+        $result.text(difference.toFixed(2));
+      }
+    });
+  });
+});
+
+</script>
 <script>
   $(document).ready(function() {
     $("#container1 .row").each(function() {

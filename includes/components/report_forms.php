@@ -80,7 +80,7 @@ require 'config.php';
                                         <td><?= $sub['subject'] ?></td>
                                         <td><?php
                                         $s_name=$sub['subject'];
-                                            $sql1 = "select sum(l_number) from subject_need where n_code = '$need_id' AND subject='$s_name'";
+                                            $sql1 = "select sum(total_no) from subject_need where n_code = '$need_id' AND subject='$s_name'";
                                             $q1 = mysqli_query($conn, $sql1);
                                             $row1 = mysqli_fetch_array($q1);
                                             echo $row1[0];
@@ -99,7 +99,7 @@ require 'config.php';
                                         echo $tot;
                                         $sum = $sum + $tot;
                                         ?></td>
-                                        <td>...</td>
+                                        <td><input class="available" type="number" min="0.00" name="" id="" step="0.01"></td>
                                         <td>...</td>
                                         <td>...</td>
                                     </tr>
