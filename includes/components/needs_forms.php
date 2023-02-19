@@ -225,7 +225,7 @@ require 'config.php';
                     <?php if ($type != 'student') { ?>
 
                         <button type="button" class="float-right" data-bs-toggle="modal" data-bs-target="#studentAddModal">
-                            <i class="fas fa-plus-circle float-right p-1 bg-primary" style="border-radius: 50%;"></i>
+                            <span class="pl-2">إضافة</span><i class="fas fa-plus-circle float-right p-1 bg-primary" style="border-radius: 50%;"></i>
                         </button>
                     <?php } ?>
 
