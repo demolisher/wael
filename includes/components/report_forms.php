@@ -112,7 +112,7 @@ require 'config.php';
                                 <td>
                                     <?php
 
-                                    $sql = "select sum(l_number) from subject_need where n_code = '$need_id'";
+                                    $sql = "select sum(total_no) from subject_need where n_code = '$need_id'";
                                     $q = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_array($q);
                                     echo $row[0];

@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>تطبيق المسح والاحتياج</title><link rel="icon" type="image/x-icon" href="dist/img/skills.png">
+    <title>برنامج الاحتياج</title><link rel="icon" type="image/x-icon" href="dist/img/skills.png">
 
     <!-- Icons font CSS-->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">

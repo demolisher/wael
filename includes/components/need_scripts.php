@@ -117,6 +117,7 @@
           $('#compound').val(res.data.compound);
           $('#path').val(res.data.path);
           $('#level').val(res.data.level);
+          $('#term').val(res.data.term);
           $('#gender').val(res.data.gender);
           $('#comple').val(res.data.comple);
 
@@ -190,6 +191,7 @@
           $('#view_nationality').text(res.data.nationality);
           $('#view_speciality').text(res.data.speciality);
           $('#view_level').text(res.data.level);
+          $('#view_term').text(res.data.term);
           $('#view_subject1').text(res.data.subject1);
           $('#view_clsNumber1').text(res.data.clsNumber1);
           $('#view_subject2').text(res.data.subject2);

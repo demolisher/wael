@@ -99,6 +99,17 @@
     <div class="row">
         <div class="col-4 text-center">
             <div class="form-group">
+                <label for="term">الفصل الدراسي</label>
+                <select class="form-control" name="term" id="term">
+                    <option value="" selected>قم بالاختيار</option>
+                    <option value="الفصل الأول">الفصل الأول</option>
+                    <option value="الفصل الثاني">الفصل الثاني</option>
+                    <option value="الفصل الثالث">الفصل الثالث</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4 text-center">
+            <div class="form-group">
                 <label for="gender">النوع</label>
                 <select class="form-control" name="gender" id="gender">
                     <option value="" selected>قم بالاختيار</option>

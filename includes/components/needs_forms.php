@@ -57,6 +57,15 @@ require 'config.php';
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="term">الفصل الدراسي</label>
+                        <select class="form-control" name="term">
+                            <option value="" selected>قم بالاختيار</option>
+                            <option value="الفصل الدراسي الأول">الفصل الدراسي الأول</option>
+                            <option value="الفصل الدراسي الثاني">الفصل الدراسي الثاني</option>
+                            <option value="الفصل الدراسي الثالث">الفصل الدراسي الثالث</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="gender">النوع</label>
                         <select class="form-control" name="gender">
                             <option value="" selected>قم بالاختيار</option>
@@ -65,8 +74,8 @@ require 'config.php';
                         </select>
                     </div>
                     <div class="form-group">
-                    <label for="comple">النصاب</label>
-                    <input type="text" class="form-control text-center" name="comple" placeholder="النصاب">
+                        <label for="comple">النصاب</label>
+                        <input type="text" class="form-control text-center" name="comple" placeholder="النصاب">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -132,6 +141,15 @@ require 'config.php';
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="term">الفصل الدراسي</label>
+                        <select class="form-control" name="term" id="term">
+                            <option value="" selected>قم بالاختيار</option>
+                            <option value="الفصل الدراسي الأول">الفصل الدراسي الأول</option>
+                            <option value="الفصل الدراسي الثاني">الفصل الدراسي الثاني</option>
+                            <option value="الفصل الدراسي الثالث">الفصل الدراسي الثالث</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="gender">النوع</label>
                         <select class="form-control" name="gender" id="gender">
                             <option value="" selected>قم بالاختيار</option>
@@ -140,8 +158,8 @@ require 'config.php';
                         </select>
                     </div>
                     <div class="form-group">
-                    <label for="comple">النصاب</label>
-                    <input type="text" class="form-control text-center" name="comple" id="comple" placeholder="النصاب">
+                        <label for="comple">النصاب</label>
+                        <input type="text" class="form-control text-center" name="comple" id="comple" placeholder="النصاب">
                     </div>
 
                 </div>
@@ -155,7 +173,7 @@ require 'config.php';
 </div>
 
 <!-- View Task Modal -->
-<div class="modal fade" id="studentViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="studentViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -209,7 +227,7 @@ require 'config.php';
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Teachers Table -->
 <section class="content  mt-2">
@@ -256,8 +274,8 @@ require 'config.php';
                                         <td><?= $task['gender'] ?></td>
 
                                         <td class="text-center" style="display: flex;justify-content:center;vertical-align:middle">
-                                        <?php if ($fetch['rule'] != 'data_entry') { ?><a href="need_report.php?n=<?= $task['id'];?>" class="btn-success btn-sm m-1">تقرير</a><?php } ?>    
-                                        <?php if ($fetch['rule'] != 'data_entry') { ?><a href="classes.php?n=<?= $task['id'];?>" class="btn-primary btn-sm m-1">الصفوف</a><?php } ?>
+                                            <?php if ($fetch['rule'] != 'data_entry') { ?><a href="need_report.php?n=<?= $task['id']; ?>" class="btn-success btn-sm m-1">تقرير</a><?php } ?>
+                                            <?php if ($fetch['rule'] != 'data_entry') { ?><a href="classes.php?n=<?= $task['id']; ?>" class="btn-primary btn-sm m-1">الصفوف</a><?php } ?>
                                             <?php if ($fetch['rule']  != 'data_entry') { ?> <button type="button" class="editStudentBtn btn-warning btn-sm m-1" value="<?= $task['id']; ?>">عدّل</button> <?php } ?>
                                             <?php if ($fetch['rule']  != 'data_entry') { ?> <button type="button" class="deleteStudentBtn btn-danger btn-sm m-1" value="<?= $task['id']; ?>">حذف</button> <?php } ?>
                                         </td>
